@@ -65,7 +65,7 @@ RUN apt-get update \
     && cd /tmp/hugo \
     && git clone https://github.com/gohugoio/hugo.git \
     && cd hugo \ 
-    && git checkout v0.53 \
+    && git checkout v0.57.2 \
     && go install --tags extended \
     && cd - \
     && rm -rf /tmp/hugo \
