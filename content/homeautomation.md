@@ -1,7 +1,4 @@
 +++
-active = true
-subtitle = ""
-
 Description = "Details about my home lab/automation setup."
 date = "2019-01-01"
 title = "Home Lab/Automation"

@@ -1,0 +1,46 @@
+baseURL = "https://thenullpointer.net"
+languageCode = "en-us"
+title = "thenullpointer.net"
+theme = "hello-friend-ng"
+
+enableRobotsTXT = true
+enableGitInfo   = false
+enableEmoji     = true
+
+[author]
+  name = "Dustin Brewer"
+
+[params]
+    homeSubtitle = "turning caffeine into software"
+
+    [params.logo]
+        logoText     = "$ cd /www"
+        logoHomeLink = "/"
+
+    [[params.social]]
+        name = "email"
+        url  = "mailto:mannkind@thenullpointer.net"
+
+    [[params.social]]
+        name = "github"
+        url  = "https://github.com/mannkind"
+
+    [[params.social]]
+        name = "twitter"
+        url  = "https://twitter.com/mannkind"
+
+[menu]
+    [[menu.main]]
+        identifier = "about"
+        name       = "About"
+        url        = "about/"
+
+    [[menu.main]]
+        identifier = "yearly-summary"
+        name       = "Yearly Summaries"
+        url        = "yearly-summary/"
+        
+    [[menu.main]]
+        identifier = "homelabautomation"
+        name       = "Home Lab/Automation"
+        url        = "homeautomation"
