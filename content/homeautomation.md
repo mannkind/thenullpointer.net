@@ -19,11 +19,9 @@ I have lots of experience, but will never consider myself an expert. There is al
 - UniFi AC-PRO
 - (3) UniFi 8-port POE Switches
 
-### Cluster
+### Server
 
-- (1) Raspberry Pi 3, ARM32v7, Raspbian
 - (1) Xeon E3 1250v2, AMD64, Ubuntu 18.04
-- (1) Core i7, AMD64, Ubuntu 18.04
 
 ### Cameras
 
@@ -41,8 +39,9 @@ I have lots of experience, but will never consider myself an expert. There is al
 ## Containerization and Orchestration
 
 - Docker - it's what all the cool kids are using, and really does make my server maintenance easier.
-- Docker Swarm - while Kubernetes is totes cool, it's _zomg_ overkill for home use. Even Swarm is a bit overkill, but it's fairly minimal over what I was previously using (`docker-compose`)
-- Multi-architecture Images - because I just had to have both amd64 and arm64 machines in a single cluster.
+- Docker Swarm - while Kubernetes is totes cool, it's _zomg_ overkill for home use. Even Swarm is a bit overkill, but it's fairly minimal over what I was previously using (`docker-compose`).
+  - I've jumped around from a cluster of Asus Tinkerboards, to mix a arm64/amd64 cluster, to a single amd64 "cluster".
+    Hopefully will upgrade to something AMD in late 2020/early 2021.
 
 ## Software
 
@@ -73,11 +72,11 @@ I have lots of experience, but will never consider myself an expert. There is al
 
 - [InfluxDB](https://www.influxdata.com/) - a time-series datastore; Home Assistant publishes sensor changes into Influx
 - [PostgreSQL](https://www.postgresql.org/) - a relational database that houses data for Miniflux and Home Assistant.
-- [MongoDB](https://www.mongodb.com/) - a document store that houses data for the Unifi Controller.
 
 ### Misc. Self-Hosted
 
 - [Miniflux](https://miniflux.app) - an opinionated RSS feed reader; replaced Feedly and Google Reader before that.
-- [Kanboard](https://kanboard.org) - project management software
+- [Kanboard](https://kanboard.org) - project management software.
+- [Gollum](https://github.com/gollum/gollum) - personal knowledge base.
 - [UniFi Controller](https://www.ui.com/software/) - a unified controller for Ubiquiti UniFi hardware.
 - [Borg Backup + Rclone](https://github.com/mannkind/borg-rclone-autobackup) - automated backups for all my servers, rclone'd to Backblaze B2.
