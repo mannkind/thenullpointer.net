@@ -30,11 +30,12 @@ I have lots of experience, but will never consider myself an expert. There is al
 
 ### Off-the-Shelf Hardware
 
-- Linear HUSBZB1 - ZWave and Zigbee Stick
-- Dome Water Shutoff Valve (ZWave)
-- (7) SmartThings Water Leak Sensors (Zigbee)
-- (3) GE Switches & Dimmer Switches (ZWave)
-- (5) GE Link Bulbs (Zigbee)
+- [Linear HUSBZB1](https://www.amazon.com/dp/B01GJ826F8) - ZWave and Zigbee Stick
+- [Dome Water Shutoff Valve](https://www.amazon.com/dp/B01LX3JFR8) (ZWave)
+- (7) [SmartThings Water Leak Sensors](https://www.amazon.com/dp/B07F951JDP) (Zigbee)
+- (3) [GE Switches & Dimmer Switches](https://www.amazon.com/dp/B07RQ8NWXS/) (ZWave)
+- (5) [Ikea TRÅDFRI Bulbs](https://www.ikea.com/us/en/p/tradfri-led-bulb-e26-806-lumen-wireless-dimmable-warm-white-warm-white-globe-opal-90457170/) (Zigbee)
+- (4) [Ikea TRÅDFRI Smart Buttons](https://www.ikea.com/us/en/p/tradfri-wireless-dimmer-white-10408598/) (Zigbee)
 
 ## Containerization
 
