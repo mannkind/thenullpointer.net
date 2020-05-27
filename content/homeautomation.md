@@ -5,13 +5,11 @@ title = "Home Lab/Automation"
 
 +++
 
-This document is a work-in-progress. It might not be complete nor accurate.
+This document is a work-in-progress; it will never be complete nor accurate.
 
-My Home Lab journey started back in 2009 with a ReadyNAS; my Home Automation journey started in 2013 with Arduino Nanos.
+My Home Lab journey started back in 2009 with a ReadyNAS; my Home Automation journey started in 2013 with Arduino Nanos. I have lots of experience, but will never consider myself an expert. There is always something to learn about!
 
-I have lots of experience, but will never consider myself an expert. There is always something to learn about!
-
-## Hardware, Architecture, & Operating System
+## Bits and Bobs
 
 ### Networking
 
@@ -21,7 +19,7 @@ I have lots of experience, but will never consider myself an expert. There is al
 
 ### Server
 
-- (1) Xeon E3 1250v2, AMD64, Ubuntu 18.04
+- (1) Xeon E3 1250v2, AMD64, NixOS 20.03
 
 ### Cameras
 
@@ -39,15 +37,14 @@ I have lots of experience, but will never consider myself an expert. There is al
 
 ## Containerization
 
-- Docker - it's what all the cool kids are using, and really does make my server maintenance easier.
-  - I jump around between a single host running Docker, to a mult-architecture (x86 and arm64) cluster, to a single host Docker Swarm. It's fun to experiment.
+- Docker - it's what all the cool kids are using, and really does make my server maintenance easier. I jump around between a single host running Docker, to a mult-architecture (x86 and arm64) cluster, to a single host Docker Swarm. It's fun to experiment.
 
 ## Software
 
 ### Network
 
 - [Traefik](https://traefik.io/) - a http load balancer, obtains certificates (both external and internal) from Let's Encrypt, managed via labels within the stack definition.
-- [Cloudflared](https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/) - DNS over HTTPS; all outgoing udp-based dns traffic is blocked at the Unifi Security Gateway.
+- [DNSCrypt Proxy](https://github.com/DNSCrypt/dnscrypt-proxy) - DNS over HTTPS; all outgoing udp-based dns traffic is blocked at the Unifi Security Gateway.
 - [Wireguard](https://www.wireguard.com) - a secure connection into my home network.
 
 ### IoT/Home Automation
