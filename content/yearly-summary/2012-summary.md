@@ -1,9 +1,8 @@
-+++
-Description = "The Year 2012 in Review"
-date = "2012-12-31T19:24:15-07:00"
-title = "2012 Summary"
-
-+++
+---
+title: "2012 Summary"
+description: "The Year 2012 in Review"
+date: "2012-12-31T19:24:15-07:00"
+---
 
 A few things worth mentioning from my life in 2012.
 
