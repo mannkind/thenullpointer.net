@@ -6,7 +6,7 @@ theme = "hello-friend-ng"
 enableRobotsTXT = true
 enableGitInfo   = false
 enableEmoji     = true
-disableRSS = true
+disableRSS = false
 
 [author]
   name = "Dustin Brewer"
