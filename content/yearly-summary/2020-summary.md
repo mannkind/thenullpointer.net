@@ -26,7 +26,7 @@ It's been basically a year since I've been in the office regularly, and soon it'
 
 When talking about events that happened in Janurary 2020, it feels like I'm referencing things that happened nearly a decade ago. Life was essentially cancelled this year -- aside from a small amount of camping this summer -- no traveling, no social gatherings with friends & family, no going to the movies, no night out at the theater, no attending concerts, no checking out new breweries, no beer festivals, **nothing**.
 
-Thankfully a lot of the things that I love to do are quarantine-friendly anyway: Watch TV, play video games, be a maker, bicycling, backpacking, camping, walking, etc.
+Thankfully a lot of the things that I love to do are quarantine-friendly anyway: Watch TV, play video games, bicycling, backpacking, camping, walking, etc.
 
 While 2021 will _probably_ be a better year compared to 2020, I won't hold my breath. Here's to hoping that maybe in 2022 we'll start to resume our normal lives again.
 
