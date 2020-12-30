@@ -42,6 +42,6 @@ disableRSS = true
         url        = "yearly-summary/"
         
     [[menu.main]]
-        identifier = "homelabautomation"
-        name       = "Home Lab/Automation"
-        url        = "homeautomation"
+        identifier = "homelab"
+        name       = "Homelab"
+        url        = "homelab/"
