@@ -1,7 +1,7 @@
 ---
-Description: "Details about my homelab and home automation setup"
-date: "2019-01-01"
 title: "Homelab"
+description: "Details about my homelab and home automation setup"
+date: "2019-01-01"
 ---
 
 This document is a work-in-progress; it will never be complete nor 100% accurate.
