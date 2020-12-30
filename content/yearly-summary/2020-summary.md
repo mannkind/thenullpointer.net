@@ -25,8 +25,7 @@ It's been basically a year since I've been in the office regularly, and soon it'
 
 ### COVID19 - Stretching one year into a decade
 
-COVID19, the pandemic, lockdowns, etc have made the year of 2020 feel like the decade of 2020. Aside from getting out do to some camping this summer, we've been completely unable to most of the things we love. This is the first year since 2011 that we haven't taken a Spring and Autumn trip together. We had plans, of course, New Orelans in the Spring and Glacier National Park in the Autumn. Of course, none of that happened due to COVID19.
-
+When talking about events that happened in Janurary 2020, it feels like I'm referencing things that happened nearly a decade ago. Life was essentially cancelled this year -- aside from a small amount of camping this summer -- no traveling, no social gatherings with friends & family, no going to the movies, no night out at the theater, no attending concerts, no checking out new breweries, no beer festivals, **nothing**.
 
 ### COVID19 - A brighter future?
 
