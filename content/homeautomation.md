@@ -1,15 +1,14 @@
-+++
-Description = "Details about my home lab/automation setup."
-date = "2019-01-01"
-title = "Home Lab/Automation"
+---
+Description: "Details about my homelab and home automation setup"
+date: "2019-01-01"
+title: "Homelab"
+---
 
-+++
+This document is a work-in-progress; it will never be complete nor 100% accurate.
 
-This document is a work-in-progress; it will never be complete nor accurate.
+My home journey started back in 2009 with a ReadyNAS and my home automation journey started in 2013 with Arduino Nanos. I have lots of experience, but will never consider myself an expert. There is always something to learn about!
 
-My Home Lab journey started back in 2009 with a ReadyNAS; my Home Automation journey started in 2013 with Arduino Nanos. I have lots of experience, but will never consider myself an expert. There is always something to learn about!
-
-## Bits and Bobs
+## Gory Details
 
 ### Networking
 
@@ -19,7 +18,7 @@ My Home Lab journey started back in 2009 with a ReadyNAS; my Home Automation jou
 
 ### Server
 
-- (1) Xeon E3 1250v2, AMD64, NixOS 20.03
+- (1) Xeon E3 1250v2, AMD64, NixOS 20.09
 
 ### Cameras
 
