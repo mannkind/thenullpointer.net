@@ -1,9 +1,8 @@
-+++
-Description = "The Year 2019 in Review"
-date = "2019-12-31T21:18:12-07:00"
-title = "2019 Summary"
-
-+++
+---
+title: "2019 Summary"
+description: "The Year 2019 in Review"
+date: "2019-12-31T21:18:12-07:00"
+---
 
 A few things worth mentioning from my life in 2019.
 
