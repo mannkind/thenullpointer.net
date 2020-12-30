@@ -1,7 +1,7 @@
 ---
-Description: "About Mme"
-date: "2019-01-01"
 title: "About Me"
+description: "About Me"
+date: "2019-01-01"
 ---
 
 I'm not really sure what to write here. I'm a nerd in all possible ways.
