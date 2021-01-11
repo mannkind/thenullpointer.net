@@ -2,4 +2,5 @@
 /.well-known/host-meta https://mastodon.thenullpointer.net/.well-known/host-meta
 /settings/profile https://mastodon.thenullpointer.net/settings/profile
 /api/v1/* https://mastodon.thenullpointer.net/api/v1/:splat
+/oauth/* https://mastodon.thenullpointer.net/laugh/:splat
 /@mannkind https://mastodon.thenullpointer.net/@mannkind
