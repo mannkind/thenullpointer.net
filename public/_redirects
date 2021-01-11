@@ -1,4 +1,6 @@
+# Mastodon Redirects
 /.well-known/host-meta https://mastodon.thenullpointer.net/.well-known/host-meta
+/settings/profile https://mastodon.thenullpointer.net/settings/profile
 /api/v1/instance https://mastodon.thenullpointer.net/api/v1/instance
 /api/v1/streaming https://mastodon.thenullpointer.net/api/v1/streaming
 /@mannkind https://mastodon.thenullpointer.net/@mannkind
