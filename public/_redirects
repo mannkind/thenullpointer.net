@@ -1,2 +1,4 @@
 /.well-known/host-meta https://mastodon.thenullpointer.net/.well-known/host-meta
+/api/v1/instance https://mastodon.thenullpointer.net/api/v1/instance
+/api/v1/streaming https://mastodon.thenullpointer.net/api/v1/streaming
 /@mannkind https://mastodon.thenullpointer.net/@mannkind
