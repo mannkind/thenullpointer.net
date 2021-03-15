@@ -1,32 +1,39 @@
 ---
 title: "Homelab"
 description: "Details about my homelab and home automation setup"
-date: "2019-01-01"
+date: "2021-01-01"
 ---
 
 This document is a work-in-progress; it will never be complete nor 100% accurate.
 
 My home journey started back in 2009 with a ReadyNAS and my home automation journey started in 2013 with Arduino Nanos. I have lots of experience, but will never consider myself an expert. There is always something to learn about!
 
-## Gory Details
+## Hardware
+
+### 3D Printers
+
+- Prusa MK2S
+- Prusa Mini+
 
 ### Networking
 
-- UniFi Security Gateway
-- UniFi AC-PRO
-- (3) UniFi 8-port POE Switches
+- [UniFi Cloud Key Plus](https://store.ui.com/products/unifi-cloudkey-plus) - UniFi Network, UniFi Protect
+- [UniFi Security Gateway](https://store.ui.com/collections/unifi-network-routing-switching/products/unifi-security-gateway)
+- [UniFi AC-PRO](https://store.ui.com/collections/unifi-network-access-points/products/unifi-ac-pro)
+- (3) [UniFi 8-port POE Switches](https://store.ui.com/collections/unifi-network-routing-switching/products/unifi-switch-8-60w)
 
 ### Server
 
-- (1) Xeon E3 1250v2, AMD64, NixOS 20.09
+- Xeon E3 1250v2, AMD64, NixOS 20.09
+- Ryzen 3 2600, AMD 5700XT, Windows 10
 
 ### Cameras
 
 - (2) Hikvision Cubes
 - (3) XiaoFang cameras running FangHacks
 
-### Off-the-Shelf Hardware
-
+### Misc
+- [UniFi G4 Doorbell](https://store.ui.com/collections/unifi-protect-cameras/products/uvc-g4-doorbell) - Ding dong!
 - [Linear HUSBZB1](https://www.amazon.com/dp/B01GJ826F8) - ZWave and Zigbee Stick
 - [Dome Water Shutoff Valve](https://www.amazon.com/dp/B01LX3JFR8) (ZWave)
 - (7) [SmartThings Water Leak Sensors](https://www.amazon.com/dp/B07F951JDP) (Zigbee)
@@ -34,11 +41,11 @@ My home journey started back in 2009 with a ReadyNAS and my home automation jour
 - (5) [Ikea TRÅDFRI Bulbs](https://www.ikea.com/us/en/p/tradfri-led-bulb-e26-806-lumen-wireless-dimmable-warm-white-warm-white-globe-opal-90457170/) (Zigbee)
 - (4) [Ikea TRÅDFRI Smart Buttons](https://www.ikea.com/us/en/p/tradfri-wireless-dimmer-white-10408598/) (Zigbee)
 
-## Containerization
+## Software
+
+### Containerization
 
 - Docker - it's what all the cool kids are using, and really does make my server maintenance easier. I jump around between a single host running Docker, to a mult-architecture (x86 and arm64) cluster, to a single host Docker Swarm. It's fun to experiment.
-
-## Software
 
 ### Network
 
@@ -69,5 +76,4 @@ My home journey started back in 2009 with a ReadyNAS and my home automation jour
 ### Misc. Self-Hosted
 
 - [Miniflux](https://miniflux.app) - an opinionated RSS feed reader; replaced Feedly and Google Reader before that.
-- [UniFi Controller](https://www.ui.com/software/) - a unified controller for Ubiquiti UniFi hardware.
 - [Borg Backup + Rclone](https://github.com/mannkind/borg-rclone-autobackup) - automated backups for all my servers, rclone'd to Backblaze B2.
