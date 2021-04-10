@@ -31,3 +31,9 @@ Thankfully a lot of the things that I love to do are quarantine-friendly anyway:
 While 2021 will _probably_ be a better year compared to 2020, I won't hold my breath. Here's to hoping that maybe in 2022 we'll start to resume our normal lives again.
 
 **le sigh**
+
+### New Car
+
+Within the context of 2020 it seems a little silly to even mention it, but Miranda and I bought our first car together: A 2020 RAV4 Hybrid XSE.
+The Mazda 3 was getting up there in years, and we wanted to sell it while it was still worth _something_. 
+Why a RAV4? More cargo room, higher off the ground (for easier access to trailheads), all wheel drive, pretty decent fuel economy due to hybrid setup, and it looks pretty bad-ass on top of it all.
