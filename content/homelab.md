@@ -56,7 +56,6 @@ My home journey started back in 2009 with a ReadyNAS and my home automation jour
 ### IoT/Home Automation
 
 - [ArgoCD](https://argoproj.github.io/cd/) - continuous deployment of my homelab
-- [Actual](https://github.com/actualbudget/actual-server) - budgeting software; once Actual has a mobile interface I'm bailing on YNAB.
 - [Mosquitto](https://mosquitto.org/) - a publish-subscribe-based messaging protocol; this runs most of my IoT infrastructure.
 - [Home Assistant](https://home-assistant.io) - a home automation software hub; anything not integrated via MQTT is integrated via Home Assistant.
 - [Grafana](https://grafana.org) - a data-visualization tool; draws pretty charts and graphs from the data within Influx
@@ -77,6 +76,7 @@ My home journey started back in 2009 with a ReadyNAS and my home automation jour
 
 ### Misc. Self-Hosted
 
+- [Actual](https://github.com/actualbudget/actual-server) - budgeting software; once Actual has a mobile interface I'm bailing on YNAB.
 - [Borg Backup + Rclone](https://github.com/mannkind/borg-rclone-autobackup) - automated backups for all my servers, rclone'd to Backblaze B2.
 - [Linkding](https://github.com/sissbruecker/linkding) - a self-hosted bookmark service.
 - [Miniflux](https://miniflux.app) - an opinionated RSS feed reader; replaced Feedly and Google Reader before that.
