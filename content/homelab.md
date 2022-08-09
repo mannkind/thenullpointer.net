@@ -64,9 +64,7 @@ My home journey started back in 2009 with a ReadyNAS and my home automation jour
 - [ESPHome](https://esphome.io) - a sensor framework for ESP8266 and ESP32 micro-controllers; I use it for most of my other custom IoT devices like my thermostat actuator, garage door actuator, fireplace actuator, etc.
 - [apc2mqtt](https://github.com/mannkind/apc2mqtt) - a apcupsd to mqtt bridge process.
 - [litterrobot2mqtt](https://github.com/mannkind/litterrobot2mqtt) - a Litter Robot API to mqtt bridge process.
-- [linkding](https://github.com/sissbruecker/linkding) - a self-hosted bookmark service.
 - [mysensorsbootloader2mqtt](http://github.com/mannkind/mysensorsbootloader2mqtt) - a mysensors bootloader to mqtt bridge process.
-- [paperless-ngx](https://paperless-ngx.readthedocs.io/en/latest/index.html) - an app to process and store paper documents (ew, gross).
 - [redfin2mqtt](https://github.com/mannkind/redfin2mqtt) - a redfin estimate to mqtt bridge process.
 - [rtl-433](https://github.com/hertzg/rtl_433_docker) - a program to process 433mhz radio signals.
 - [unifi2mqtt](https://github.com/mannkind/unifi2mqtt) - a Unifi Controller device status to mqtt bridge process.
@@ -79,5 +77,7 @@ My home journey started back in 2009 with a ReadyNAS and my home automation jour
 
 ### Misc. Self-Hosted
 
-- [Miniflux](https://miniflux.app) - an opinionated RSS feed reader; replaced Feedly and Google Reader before that.
 - [Borg Backup + Rclone](https://github.com/mannkind/borg-rclone-autobackup) - automated backups for all my servers, rclone'd to Backblaze B2.
+- [Linkding](https://github.com/sissbruecker/linkding) - a self-hosted bookmark service.
+- [Miniflux](https://miniflux.app) - an opinionated RSS feed reader; replaced Feedly and Google Reader before that.
+- [Paperless NGX](https://paperless-ngx.readthedocs.io/en/latest/index.html) - an app to process and store paper documents (ew, gross).
