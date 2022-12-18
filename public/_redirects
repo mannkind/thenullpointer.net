@@ -1,4 +1,5 @@
 # Mastodon Redirects
 /.well-known/host-meta https://mastodon.thenullpointer.net/.well-known/host-meta
 /.well-known/webfinger https://mastodon.thenullpointer.net/.well-known/webfinger
+/.well-known/nodeinfo https://mastodon.thenullpointer.net/.well-known/nodeinfo
 /@mannkind https://mastodon.thenullpointer.net/@mannkind
