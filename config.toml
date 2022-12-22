@@ -29,6 +29,7 @@ disableRSS = false
     [[params.social]]
         name = "mastodon"
         url  = "https://thenullpointer.net/@mannkind"
+        rel = "me"
 
 [menu]
     [[menu.main]]
