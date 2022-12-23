@@ -27,8 +27,8 @@ disableRSS = false
         url  = "https://github.com/mannkind"
 
     [[params.social]]
-        name = "mastodon"
-        url  = "https://mastodon.thenullpointer.net/@mannkind"
+        name = "activitypub"
+        url  = "https://thenullpointer.net/@mannkind"
         rel = "me"
 
 [menu]
