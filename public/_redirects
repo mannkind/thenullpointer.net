@@ -1,9 +1,9 @@
 # Mastodon Redirects
-#/.well-known/host-meta https://mastodon.thenullpointer.net/.well-known/host-meta
-#/.well-known/webfinger https://mastodon.thenullpointer.net/.well-known/webfinger
-#/.well-known/nodeinfo https://mastodon.thenullpointer.net/.well-known/nodeinfo
-#/@mannkind https://mastodon.thenullpointer.net/@mannkind
+/.well-known/host-meta https://mastodon.thenullpointer.net/.well-known/host-meta
+/.well-known/webfinger https://mastodon.thenullpointer.net/.well-known/webfinger
+/.well-known/nodeinfo https://mastodon.thenullpointer.net/.well-known/nodeinfo
+/@mannkind https://mastodon.thenullpointer.net/@mannkind
 # GTS Redirects
-/.well-known/webfinger https://gts.thenullpointer.net/.well-known/webfinger
-/.well-known/nodeinfo https://gts.thenullpointer.net/.well-known/nodeinfo
-/@mannkind https://gts.thenullpointer.net/@mannkind
+#/.well-known/webfinger https://gts.thenullpointer.net/.well-known/webfinger
+#/.well-known/nodeinfo https://gts.thenullpointer.net/.well-known/nodeinfo
+#/@mannkind https://gts.thenullpointer.net/@mannkind
