@@ -54,7 +54,7 @@ We went to San Diego, CA for a few days, walked around 20 miles, got lots of sun
 When we got back home, we immediately headed out on a multi-day road trip to Rexburg, ID. 
 Why Rexburg, you might ask? 
 
-![Kittens](/img/2022-summary-5.jpg)
+![Kittens](/img/2022-summary-5.jpg) 
 
 We had to pickup our newest family members: Mason Mosaic and Sophie Simcoe.
 They're on Instagram [@the.brewery.kitties](https://instagram.com/the.brewery.kitties)
