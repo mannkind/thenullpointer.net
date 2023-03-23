@@ -43,3 +43,18 @@ We sadly had to say goodbye to Scrambles in 2022. In short: She was suffering wi
 > We love you Scrambles. ❤️
 
 We'll always have our memories and [her instagram account](https://instagram.com/scrambles.the.cat).
+
+### San Diego Vacation + Multi-state Road Trip
+
+We had quite the adventure in mid-September over Miranda's birthday.
+
+![Fun in the sun](/img/2022-summary-4.jpg)
+
+We went to San Diego, CA for a few days, walked around 20 miles, got lots of sun, and had a ton of fun. 
+When we got back home, we immediately headed out on a multi-day road trip to Rexburg, ID. 
+Why Rexburg, you might ask? 
+
+![Kittens](/img/2022-summary-5.jpg)
+
+We had to pickup our newest family members: Mason Mosaic and Sophie Simcoe.
+They're on Instagram [@the.brewery.kitties](https://instagram.com/the.brewery.kitties)
