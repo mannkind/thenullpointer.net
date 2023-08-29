@@ -1,37 +1,53 @@
 ---
 title: "Homelab"
 description: "Details about my homelab and home automation setup"
-date: "2023-03-22"
+date: "2023-08-28"
 ---
 
 This document is a work-in-progress; it will never be complete nor 100% accurate.
 
-My homelab journey started back in 2009 with a ReadyNAS and my home automation journey started in 2013 with Arduino Nanos. I have lots of experience, but will never consider myself an expert. There is always something to learn about!
+My homelab journey started back in 2009 with a ReadyNAS and my home automation journey started in 2013 with Arduino Nanos.
+
+I have lots of experience, but will never consider myself an expert; there is always something to learn about!
 
 ## Hardware
 
 ### 3D Printers
 
-- Prusa MK2S (Shared)
+- Prusa MK4
 - Prusa Mini+
+- Prusa MK2S (Shared)
+
+### CNC Machines
+
+- YoraHome Mandril
 
 ### Networking
 
-- R86S - Opnsense router w/10G SFP+ ans (3)2.5Gbw
-- QNAP QSW-M2116P-2T2S - Multi-gig switch up to 10G SFP+/10Gbe
+- R86S - Opnsense router w/10G SFP+ and three 2.5Gbe
+- QNAP QSW-M2116P-2T2S - Multi-gig switch with two 10G SFP+/10Gbe, and the remainder are 2.5Gbe
 - GWB7664 - Wifi 6 Access Point
 
-### Server
+### Server(s)
+
+#### Primary/General Hypervisor
+Runs the clusters, NAS, and virtual workstation.
 
 - Intel Core i7-13700 - Built-in iGPU
 - AsrockRack W680D4U-2•2T - Built-in 10Gbe
 - 64GB DDR5 ECC
 - ESXI Hypervisor
 
+#### Stratum 1 PTP/NTP Server
+- Raspberry Pi CM4
+- Waveshare PoE Carrier board
+- UBlox LEA-M8T concurrent GNSS receiver
+
 ### Cameras
 
 - (2) [Reolink Trackmix](https://reolink.com/us/product/reolink-trackmix-poe/)
 - (3) [Reolink RLC-833A](https://reolink.com/us/product/rlc-833a/)
+- [Reolink E1 Outdoor](https://m.reolink.com/us/product/e1-outdoor-poe/)
 - [Reolink Doorbell](https://reolink.com/us/product/reolink-video-doorbell/)
 
 ### Misc
@@ -45,24 +61,20 @@ My homelab journey started back in 2009 with a ReadyNAS and my home automation j
 
 ## Software
 
-### Containerization
-
-- K3S - Kubernetes is so hot right now.
-
-### Network
-
+- [K3S](https://k3s.io) - Kubernetes is so hot right now.
 - [Traefik](https://traefik.io/) - a http load balancer, obtains certificates (both external and internal) from Let's Encrypt, managed via labels within the stack definition.
 - [MetalLB](https://metallb.universe.tf) - load balancer for bare-metal kubernetes
 - [Wireguard](https://www.wireguard.com) - a secure connection into my home network.
 - [ArgoCD](https://argoproj.github.io/cd/) - continuous deployment of my homelab
 - [Longhorn](https://longhorn.io) - distributed block storage
-- [Mosquitto](https://mosquitto.org/) - a publish-subscribe-based messaging protocol; this runs most of my IoT infrastructure.
-- [Home Assistant](https://home-assistant.io) - a home automation software hub; anything not integrated via MQTT is integrated via Home Assistant.
+- [Mosquitto](https://mosquitto.org/) - a publish-subscribe-based messaging protocol
+- [Home Assistant](https://home-assistant.io) - a home automation software hub
 - [Grafana](https://grafana.org) - a data-visualization tool; draws pretty charts and graphs from the data within Influx
 - [ESPHome](https://esphome.io) - a sensor framework for ESP8266 and ESP32 micro-controllers; I use it for most of my other custom IoT devices like my thermostat actuator, garage door actuator, fireplace actuator, etc.
 - [InfluxDB](https://www.influxdata.com/) - a time-series datastore; Home Assistant publishes sensor changes into Influx
 - [PostgreSQL](https://www.postgresql.org/) - a relational database that houses data for Miniflux and Home Assistant.
 - [Actual](https://github.com/actualbudget/actual-server) - budgeting software; once Actual has a mobile interface I'm bailing on YNAB.
-- [Borg Backup + Rclone](https://github.com/mannkind/borg-rclone-autobackup) - automated backups for all my servers, rclone'd to Backblaze B2.
+- [Terraform](https://opentf.org) - Automated K3S cluster creation on ESXI
+- [Kopia](https://kopia.io) - automated backups
 - [Miniflux](https://miniflux.app) - an opinionated RSS feed reader; replaced Feedly and Google Reader before that.
 - [Plex](https://pltx.tv) - media streaming with hardware transcoding
