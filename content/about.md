@@ -9,3 +9,5 @@ I am an open-source software developer • cyclist • maker • amateur extra �
 
 
 My favorite day includes Miranda, Mason & Sophie, good food & good beer (👩🏼‍💻, 🐈, 🥘, 🍺).
+
+My iMessage public verification code is `APKTIDHM8zi57wOQ8cmuIkbZNQh_bVTFufjZNxb8pdw9sWwKhDSA`.
