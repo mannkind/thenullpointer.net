@@ -65,7 +65,6 @@ Runs the clusters, NAS, and virtual workstation.
 - [Traefik](https://traefik.io/) - a http load balancer, obtains certificates (both external and internal) from Let's Encrypt, managed via labels within the stack definition.
 - [Wireguard](https://www.wireguard.com) - a secure connection into my home network.
 - [ArgoCD](https://argoproj.github.io/cd/) - continuous deployment of my homelab
-- [Longhorn](https://longhorn.io) - distributed block storage
 - [Mosquitto](https://mosquitto.org/) - a publish-subscribe-based messaging protocol
 - [Home Assistant](https://home-assistant.io) - a home automation software hub
 - [Grafana](https://grafana.org) - a data-visualization tool; draws pretty charts and graphs from the data within Influx
