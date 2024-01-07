@@ -36,7 +36,7 @@ Runs the clusters, NAS, and virtual workstation.
 - Intel Core i7-13700 - Built-in iGPU
 - AsrockRack W680D4U-2•2T - Built-in 10Gbe
 - 64GB DDR5 ECC
-- ESXI Hypervisor
+- Proxmox Hypervisor
 
 #### Stratum 1 PTP/NTP Server
 - Raspberry Pi CM4
@@ -63,7 +63,6 @@ Runs the clusters, NAS, and virtual workstation.
 
 - [K3S](https://k3s.io) - Kubernetes is so hot right now.
 - [Traefik](https://traefik.io/) - a http load balancer, obtains certificates (both external and internal) from Let's Encrypt, managed via labels within the stack definition.
-- [MetalLB](https://metallb.universe.tf) - load balancer for bare-metal kubernetes
 - [Wireguard](https://www.wireguard.com) - a secure connection into my home network.
 - [ArgoCD](https://argoproj.github.io/cd/) - continuous deployment of my homelab
 - [Longhorn](https://longhorn.io) - distributed block storage
@@ -74,7 +73,9 @@ Runs the clusters, NAS, and virtual workstation.
 - [InfluxDB](https://www.influxdata.com/) - a time-series datastore; Home Assistant publishes sensor changes into Influx
 - [PostgreSQL](https://www.postgresql.org/) - a relational database that houses data for Miniflux and Home Assistant.
 - [Actual](https://github.com/actualbudget/actual-server) - budgeting software; once Actual has a mobile interface I'm bailing on YNAB.
-- [Terraform](https://opentf.org) - Automated K3S cluster creation on ESXI
 - [Kopia](https://kopia.io) - automated backups
 - [Miniflux](https://miniflux.app) - an opinionated RSS feed reader; replaced Feedly and Google Reader before that.
-- [Plex](https://pltx.tv) - media streaming with hardware transcoding
+- [ZWave2MQTT](https://github.com/zwave-js/zwave-js-ui) -  Manages the zwave network.
+- [Zigbee2MQTT](https://www.zigbee2mqtt.io) - Manages the zigbee network. 
+- [Plex](https://plex.tv) - media streaming with hardware transcoding.
+- [Jellyfin](https://jellyfin.org) - open-source media stream; still has a long way to go to be better than Plex.
