@@ -3,7 +3,7 @@ title: "Dead Sea Effect"
 date: "2023-05-07T22:34:26-08:00"
 ---
 
-The follow quote is from Bruce F. Webster in this [blog post](https://brucefwebster.com/2008/06/16/anatomy-of-a-runaway-it-project/).
+The follow quote is from Bruce F. Webster in this [blog post](https://brucefwebster.com/2008/04/11/the-wetware-crisis-the-dead-sea-effect/).
 
 > There are many reasons why large organizations, public and private, struggle with information technology (IT) development.
 > One, which I’ve already discussed here and here, deals with finding and hiring the best engineers you can.
