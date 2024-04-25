@@ -61,7 +61,7 @@ Runs the clusters, NAS, and virtual workstation.
 - [Terraform](http://terraform.io) - enabling infrastrcuture-as-code in my homelab and DNS provider.
 - [K3S](https://k3s.io) - Kubernetes is so hot right now.
 - [Traefik](https://traefik.io/) - a http load balancer, obtains certificates (both external and internal) from Let's Encrypt, managed via labels within the stack definition.
-- MetalLB - a baremetal load balancer; enables a shared IP between cluster members pointing at Traefik (or other services).
+- [MetalLB](https://metallb.universe.tf) - a baremetal load balancer; enables a shared IP between cluster members pointing at Traefik (or other services).
 - [ArgoCD](https://argoproj.github.io/cd/) - continuous deployment of my homelab.
 - [Mosquitto](https://mosquitto.org/) - a publish-subscribe-based messaging protocol.
 - [Home Assistant](https://home-assistant.io) - a home automation software hub.
