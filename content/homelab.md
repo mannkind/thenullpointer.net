@@ -1,7 +1,7 @@
 ---
 title: "Homelab"
 description: "Details about my homelab and home automation setup"
-date: "2023-08-28"
+date: "2024-04-24"
 ---
 
 This document is a work-in-progress; it will never be complete nor 100% accurate.
@@ -12,14 +12,10 @@ I have lots of experience, but will never consider myself an expert; there is al
 
 ## Hardware
 
-### 3D Printers
+### 3D Printers / CNC Machines
 
 - Prusa MK4
-- Prusa Mini+
 - Prusa MK2S (Shared)
-
-### CNC Machines
-
 - YoraHome Mandril
 
 ### Networking
@@ -35,8 +31,8 @@ Runs the clusters, NAS, and virtual workstation.
 
 - Intel Core i7-13700 - Built-in iGPU
 - AsrockRack W680D4U-2•2T - Built-in 10Gbe
-- 64GB DDR5 ECC
-- Proxmox Hypervisor
+- 128GB DDR5 ECC
+- Hosts both a dev and prod cluster
 
 #### Stratum 1 PTP/NTP Server
 - Raspberry Pi CM4
@@ -61,15 +57,16 @@ Runs the clusters, NAS, and virtual workstation.
 
 ## Software
 
+- [Proxmox](http://proxmox.com) - a open-source hypervisor for running VMs or LXC containers; currently using LXC containers as my K3S nodes.
+- [Terraform](http://terraform.io) - enabling infrastrcuture-as-code in my homelab and DNS provider.
 - [K3S](https://k3s.io) - Kubernetes is so hot right now.
 - [Traefik](https://traefik.io/) - a http load balancer, obtains certificates (both external and internal) from Let's Encrypt, managed via labels within the stack definition.
-- [Wireguard](https://www.wireguard.com) - a secure connection into my home network.
-- [ArgoCD](https://argoproj.github.io/cd/) - continuous deployment of my homelab
-- [Mosquitto](https://mosquitto.org/) - a publish-subscribe-based messaging protocol
-- [Home Assistant](https://home-assistant.io) - a home automation software hub
-- [Grafana](https://grafana.org) - a data-visualization tool; draws pretty charts and graphs from the data within Influx
-- [ESPHome](https://esphome.io) - a sensor framework for ESP8266 and ESP32 micro-controllers; I use it for most of my other custom IoT devices like my thermostat actuator, garage door actuator, fireplace actuator, etc.
-- [InfluxDB](https://www.influxdata.com/) - a time-series datastore; Home Assistant publishes sensor changes into Influx
+- MetalLB - a baremetal load balancer; enables a shared IP between cluster members pointing at Traefik (or other services).
+- [ArgoCD](https://argoproj.github.io/cd/) - continuous deployment of my homelab.
+- [Mosquitto](https://mosquitto.org/) - a publish-subscribe-based messaging protocol.
+- [Home Assistant](https://home-assistant.io) - a home automation software hub.
+- [Grafana](https://grafana.org) - a data-visualization tool; draws pretty charts and graphs from the data within Influx.
+- [InfluxDB](https://www.influxdata.com/) - a time-series datastore; Home Assistant publishes sensor changes into Influx.
 - [PostgreSQL](https://www.postgresql.org/) - a relational database that houses data for Miniflux and Home Assistant.
 - [Actual](https://github.com/actualbudget/actual-server) - budgeting software; once Actual has a mobile interface I'm bailing on YNAB.
 - [Kopia](https://kopia.io) - automated backups
@@ -78,3 +75,5 @@ Runs the clusters, NAS, and virtual workstation.
 - [Zigbee2MQTT](https://www.zigbee2mqtt.io) - Manages the zigbee network. 
 - [Plex](https://plex.tv) - media streaming with hardware transcoding.
 - [Jellyfin](https://jellyfin.org) - open-source media stream; still has a long way to go to be better than Plex.
+- [ESPHome](https://esphome.io) - a sensor framework for ESP8266 and ESP32 micro-controllers; I use it for most of my other custom IoT devices like my thermostat actuator, garage door actuator, fireplace actuator, etc.
+- [Wireguard](https://www.wireguard.com) - a secure connection into my home network.
