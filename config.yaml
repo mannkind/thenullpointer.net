@@ -1,0 +1,44 @@
+baseURL: "https://thenullpointer.net/"
+languageCode: "en-us"
+theme: "terminal"
+title: "thenullpointer.net"
+description: "Turning caffeine into code"
+copyright: "All Rights Reserved"
+
+author:
+  name: "Dustin Brewer"
+
+params:
+  # Terminal theme specific params
+  contentTypeName: "posts"
+  themeColor: "green" # orange, blue, red, pink, green
+  showMenuItems: 5
+  showLanguageSelector: false
+  centerTheme: false
+  autoCursorColor: false
+  cursorColor: "#fe5186"
+  ReadMore: "Read more"
+
+  # Logo/branding
+  logo:
+    logoText: "thenullpointer.net"
+    logoHomeLink: "/"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+menu:
+  main:
+    - identifier: "about"
+      name: "About"
+      url: "/about"
+
+    - identifier: "showcase"
+      name: "Showcase"
+      url: "/showcase"
+
+    - identifier: "yearly-summaries"
+      name: "Yearly Summaries"
+      url: "/yearly-summary"

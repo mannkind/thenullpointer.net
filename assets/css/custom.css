@@ -1,0 +1,32 @@
+/* Custom CSS to override mobile menu behavior */
+/* Keep the standard horizontal menu on mobile instead of dropdown */
+
+@media (max-width: 684px) {
+  /* Keep the desktop menu visible on mobile */
+  .menu--desktop {
+    display: flex !important;
+  }
+
+  /* Hide the mobile dropdown trigger */
+  .menu--mobile .menu__trigger {
+    display: none !important;
+  }
+
+  /* Override navigation menu styles for better mobile display */
+  .navigation-menu__inner {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .navigation-menu__inner > li {
+    margin: 5px 10px 5px 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Ensure menu items don't wrap text and stay readable */
+  .navigation-menu__inner > li a {
+    white-space: nowrap;
+    font-size: 14px; /* Slightly smaller on mobile for better fit */
+  }
+}
