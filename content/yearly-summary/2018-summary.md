@@ -36,7 +36,7 @@ I quit my job with University Services in April and started a new position with 
 
 I have to admit that the job isn't quite what I have the skills to do, but I do hope to learn a lot!
 
-## New Job - REMIX
+### New Job - REMIX
 I quit my job with the Enterprise Data Warehouse in November and started a new position with the Enterprise Web-Services and Events. I really liked working with the EDW, but I just didn't feel good at the job.  
 
 I feel bad -- I really liked the people on my (former) team, but I just didn't feel good about the work that I was doing.  
