@@ -16,12 +16,21 @@ export default {
     }
 
 	// Generate the new device_id cookie
-	const deviceIdCookie = serialize(COOKIE_NAME, crypto.randomUUID());
+ const deviceId = crypto.randomUUID();
+	const deviceIdCookie = serialize(COOKIE_NAME, deviceId, {
+   domain: '.thenullpointer.net',
+   maxAge: 5 * 365 * 24 * 60 * 60,
+   path: '/',
+   secure: false,
+   httpOnly: false,
+   sameSite: false,
+ });
 
 	// Proxy the request; set the device_id cookie
 	const newRequest = new Request(request);
+ const newRequestDeviceIdCookie = serialize(COOKIE_NAME, deviceId);
 	const newRequestCookies = 
-		requestCookies === '' ? deviceIdCookie : `${requestCookies}; ${deviceIdCookie}`;
+		requestCookies === '' ? newRequestDeviceIdCookie : `${requestCookies}; ${newRequestDeviceIdCookie}`;
 
 	newRequest.headers.set(COOKIE_HEADER, newRequestCookies);
     const response = await fetch(newRequest);
