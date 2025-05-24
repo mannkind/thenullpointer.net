@@ -1,7 +1,7 @@
 ---
 title: "Homelab"
 description: "Details about my homelab and home automation setup"
-date: "2024-04-24"
+date: "2025-05-23"
 ---
 
 This document is a work-in-progress; it will never be complete nor 100% accurate.
@@ -14,8 +14,8 @@ I have lots of experience, but will never consider myself an expert; there is al
 
 ### 3D Printers / CNC Machines
 
-- Prusa MK4
-- Prusa MK2S (Shared)
+- BambuLab H2D w/ (2x) AMS 2 Pro
+- Prusa MK4S
 - YoraHome Mandril
 
 ### Networking
@@ -45,6 +45,11 @@ Runs the clusters, NAS, and virtual workstation.
 - (3) [Reolink RLC-833A](https://reolink.com/us/product/rlc-833a/)
 - [Reolink E1 Outdoor](https://m.reolink.com/us/product/e1-outdoor-poe/)
 - [Reolink Doorbell](https://reolink.com/us/product/reolink-video-doorbell/)
+
+### Blinds
+- (5) Hunter Douglas Powerview Gen3
+- (3) [Zemismart ZM85EL-2Z](https://www.zemismart.com/products/zm85el-2z)
+- [Switchbot Tilt](https://us.switch-bot.com/products/switchbot-blind-tilt)
 
 ### Misc
 
