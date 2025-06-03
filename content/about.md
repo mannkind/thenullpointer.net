@@ -12,5 +12,5 @@ My favorite day includes Miranda, Mason & Sophie, good food & good beer (üë©üè
 My iMessage public verification code is:
 
 ```
-APKTIDHM8zi57wOQ8cmuIkbZNQh_bVTFufjZNxb8pdw9sWwKhDSA
+APKTIDo3vEA0RVcCs--idAz7n1e4VuoZvGDNr3Z3_yi7wVG84zQg
 ```
