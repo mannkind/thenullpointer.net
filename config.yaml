@@ -1,0 +1,58 @@
+baseURL: "https://thenullpointer.net/"
+languageCode: "en-us"
+theme: "hello-4s3ti" 
+author:
+  name: "Dustin Brewer"
+title: thenullpointer.net
+description: Turning caffeine into software
+copyright: "All Rights Reserved"
+IsMultiLingual: false
+
+params:
+  defaultTheme: "dark"
+  EnableThemeToggle: true
+  socialIcons: true
+  homeTitle: thenullpointer.net
+  homeSubtitle: turning caffeine into software
+  fontAwesome:
+    KitURL: "https://kit.fontawesome.com/0ed5cec925.js"
+  ShowReadingTime: false
+  LastModDisplay: false
+  tags: false
+  logo:
+    logoText: "$ cd /www"
+    logoCursorColor: "#fe5186"
+  social:
+    - name: "email"
+      url: "mailto:mannkind@thenullpointer.net"
+    - name: "github"
+      url: "https://github.com/mannkind"
+    - name: "mastodon"
+      url: "https://thenullpointer.net/@mannkind"
+
+  footer:
+    showVersion: true
+    socialIcons: false
+    author: true
+    rss: true
+    trademark: true
+    copyright: true
+    bottomText:
+      [
+        'Powered by <a href="http://gohugo.io">Hugo</a>',
+        'with <a href="#">Hello-friend-4s3ti</a>',
+      ]
+
+menu:
+  main:
+    - identifier: "about"
+      name: "About"
+      url: "/about"
+
+    - identifier: "homelab"
+      name: "Homelab"
+      url: "/homelab"
+
+    - identifier: "yearly-summaries"
+      name: "Yearly Summaries"
+      url: "/yearly-summary"
