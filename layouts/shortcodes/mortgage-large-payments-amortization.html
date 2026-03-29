@@ -1,0 +1,267 @@
+<style>
+:root {
+  --accent: #e85d26;
+  --bg: #0f1117;
+  --card: #181b24;
+  --border: #262a36;
+  --text: #d4d4d8;
+  --muted: #71717a;
+  --green: #22c55e;
+  --input-bg: #12151e;
+  --indigo: #6366f1;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', 'Segoe UI', sans-serif; padding: 24px 16px; }
+.wrap { max-width: 860px; margin: 0 auto; }
+h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+.subtitle { color: var(--muted); font-size: 13px; margin-top: 4px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; margin-bottom: 24px; }
+.section-title { font-size: 15px; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.dot-indigo { background: var(--indigo); }
+.dot-accent { background: var(--accent); }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-end; }
+.row + .row { margin-top: 12px; }
+.field { flex: 1 1 90px; min-width: 70px; }
+.field label { font-size: 11px; color: var(--muted); display: block; margin-bottom: 3px; }
+.field input { background: var(--input-bg); border: 1px solid var(--border); color: var(--text); border-radius: 6px; padding: 8px 10px; font-size: 14px; outline: none; width: 100%; font-family: inherit; }
+.info { margin-top: 10px; font-size: 13px; color: var(--muted); }
+.info span { color: var(--text); font-family: 'JetBrains Mono', monospace; }
+.btn { background: var(--accent); color: #fff; border: none; border-radius: 6px; padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; font-family: inherit; }
+.btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+.btn-pill { border-radius: 20px; padding: 6px 18px; font-size: 13px; }
+.btn-sm { padding: 4px 10px; font-size: 12px; border-radius: 20px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.stat { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.stat-value { font-size: 20px; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+.stat-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.divider { border-top: 1px solid var(--border); padding-top: 12px; margin-top: 12px; }
+.divider-label { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.pills { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+.pill { background: #1e2330; border: 1px solid var(--border); border-radius: 20px; padding: 4px 10px; font-size: 12px; font-family: 'JetBrains Mono', monospace; display: inline-flex; align-items: center; gap: 6px; }
+.pill-x { cursor: pointer; color: var(--muted); font-weight: 700; font-size: 14px; line-height: 1; }
+.tabs { display: flex; gap: 4px; margin-bottom: 16px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; font-family: 'JetBrains Mono', monospace; }
+th { padding: 10px 12px; text-align: right; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 500; white-space: nowrap; border-bottom: 1px solid var(--border); }
+td { padding: 7px 12px; text-align: right; }
+tr.extra-row { background: #162016; }
+.tbl-wrap { overflow-x: auto; }
+.tbl-footer { padding: 12px; text-align: center; }
+svg text { font-family: 'JetBrains Mono', monospace; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div style="margin-bottom:20px">
+    <h1>Amortization Calculator</h1>
+    <p class="subtitle" id="subtitle"></p>
+  </div>
+
+  <!-- Loan Parameters -->
+
+  <div class="card">
+    <div class="section-title"><span class="dot dot-indigo"></span> Loan Parameters</div>
+    <div class="row">
+      <div class="field"><label>Home Price</label><input type="number" id="homePrice" value="200000"></div>
+      <div class="field"><label>Down Payment %</label><input type="number" id="downPct" value="20" min="0" max="100" step="1"></div>
+      <div class="field"><label>Interest Rate %</label><input type="number" id="rate" value="7.1" step="0.05"></div>
+      <div class="field" style="flex:1 1 70px;min-width:60px"><label>Term (years)</label><input type="number" id="years" value="30"></div>
+    </div>
+    <div class="info" id="loanInfo"></div>
+  </div>
+
+  <!-- Stats -->
+
+  <div class="stats" id="stats"></div>
+
+  <!-- Extra Payments -->
+
+  <div class="card">
+    <div class="section-title"><span class="dot dot-accent"></span> Extra Payments</div>
+    <div class="row">
+      <div class="field" style="flex:1 1 80px"><label>Month #</label><input type="number" id="extraMonth" placeholder="e.g. 6"></div>
+      <div class="field" style="flex:1 1 100px"><label>Amount</label><input type="number" id="extraAmount" value="10000"></div>
+      <button class="btn" onclick="addSingle()">Add</button>
+    </div>
+    <div class="divider">
+      <div class="divider-label">Bulk: add recurring extra payments</div>
+      <div class="row">
+        <div class="field" style="flex:1 1 70px;min-width:60px"><label>From mo.</label><input type="number" id="bulkStart" value="6"></div>
+        <div class="field" style="flex:1 1 70px;min-width:60px"><label>To mo.</label><input type="number" id="bulkEnd" value="18"></div>
+        <div class="field" style="flex:1 1 60px;min-width:55px"><label>Every N mo.</label><input type="number" id="bulkInterval" value="1"></div>
+        <div class="field" style="flex:1 1 90px;min-width:80px"><label>Amount</label><input type="number" id="bulkAmount" value="10000"></div>
+        <button class="btn" onclick="addBulk()">Add Bulk</button>
+      </div>
+    </div>
+    <div class="pills" id="pills"></div>
+  </div>
+
+  <!-- Tabs -->
+
+  <div class="tabs" id="tabs">
+    <button class="btn btn-outline btn-pill active-tab" onclick="switchTab('schedule')">Schedule</button>
+    <button class="btn btn-outline btn-pill" onclick="switchTab('chart')">Chart</button>
+  </div>
+
+  <!-- Schedule -->
+
+  <div class="card" id="schedulePanel" style="padding:0;overflow:hidden">
+    <div class="tbl-wrap"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div>
+    <div class="tbl-footer"><button class="btn btn-outline btn-sm" id="toggleRows" onclick="toggleShowAll()"></button></div>
+  </div>
+
+  <!-- Chart -->
+
+  <div class="card" id="chartPanel" style="display:none;overflow:hidden">
+    <svg id="chartSvg" viewBox="0 0 780 260" style="width:100%;height:auto"></svg>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const fmt = n => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const fmtK = n => n >= 1000 ? '$' + (n / 1000).toFixed(n % 1000 === 0 ? 0 : 1) + 'k' : '$' + n.toFixed(0);
+
+let extraPayments = {};
+let showAll = false;
+let currentTab = 'schedule';
+
+function getLoanParams() {
+  const hp = parseFloat($('homePrice').value) || 0;
+  const dp = (parseFloat($('downPct').value) || 0) / 100;
+  const r = parseFloat($('rate').value) || 0;
+  const y = parseInt($('years').value) || 30;
+  const downAmt = hp * dp;
+  const loan = Math.max(0, hp - downAmt);
+  return { hp, dp, downAmt, loan, rate: r, years: y, months: y * 12 };
+}
+
+function monthlyPayment(P, annualRate, n) {
+  const r = annualRate / 100 / 12;
+  if (r === 0) return P / n;
+  return (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+}
+
+function buildSchedule(P, annualRate, n, extras) {
+  const r = annualRate / 100 / 12;
+  const pmt = monthlyPayment(P, annualRate, n);
+  let bal = P;
+  const rows = [];
+  let totInt = 0, totExtra = 0;
+  for (let m = 1; m <= n && bal > 0.01; m++) {
+    const interest = bal * r;
+    const princ = Math.min(pmt - interest, bal);
+    const ex = Math.min(extras[m] || 0, bal - princ);
+    bal = Math.max(0, bal - princ - ex);
+    totInt += interest;
+    totExtra += ex;
+    rows.push({ month: m, payment: interest + princ, principal: princ, interest, extra: ex, balance: bal, totalInterest: totInt });
+  }
+  return { rows, pmt, totalInterest: totInt, totalExtra: totExtra };
+}
+
+function addSingle() {
+  const m = parseInt($('extraMonth').value);
+  const a = parseFloat($('extraAmount').value);
+  const p = getLoanParams();
+  if (m > 0 && m <= p.months && a > 0) {
+    extraPayments[m] = (extraPayments[m] || 0) + a;
+    $('extraMonth').value = '';
+    render();
+  }
+}
+
+function addBulk() {
+  const s = parseInt($('bulkStart').value);
+  const e = parseInt($('bulkEnd').value);
+  const a = parseFloat($('bulkAmount').value);
+  const iv = parseInt($('bulkInterval').value) || 1;
+  if (s > 0 && e >= s && a > 0) {
+    for (let m = s; m <= e; m += iv) extraPayments[m] = (extraPayments[m] || 0) + a;
+    render();
+  }
+}
+
+function removeExtra(m) { delete extraPayments[m]; render(); }
+function clearAll() { extraPayments = {}; render(); }
+function toggleShowAll() { showAll = !showAll; render(); }
+
+function switchTab(t) {
+  currentTab = t;
+  $('schedulePanel').style.display = t === 'schedule' ? '' : 'none';
+  $('chartPanel').style.display = t === 'chart' ? '' : 'none';
+  document.querySelectorAll('.tabs button').forEach(b => {
+    b.classList.toggle('active-tab', b.textContent.toLowerCase() === t);
+    if (b.textContent.toLowerCase() === t) { b.style.background = 'var(--accent)'; b.style.borderColor = 'var(--accent)'; b.style.color = '#fff'; }
+    else { b.style.background = 'transparent'; b.style.borderColor = 'var(--border)'; b.style.color = 'var(--text)'; }
+  });
+  render();
+}
+
+function render() {
+  const p = getLoanParams();
+  $('subtitle').textContent = `${fmt(p.hp)} home · ${(p.dp * 100).toFixed(0)}% down · ${fmt(p.loan)} loan · ${p.rate}% · ${p.years} yr`;
+  $('loanInfo').innerHTML = `Down payment: <span>${fmt(p.downAmt)}</span> · Loan amount: <span>${fmt(p.loan)}</span>`;
+
+  const base = buildSchedule(p.loan, p.rate, p.months, {});
+  const we = buildSchedule(p.loan, p.rate, p.months, extraPayments);
+  const saved = base.totalInterest - we.totalInterest;
+  const mSaved = base.rows.length - we.rows.length;
+  const ySaved = Math.floor(mSaved / 12);
+  const moSaved = mSaved % 12;
+
+  $('stats').innerHTML = [
+    { l: 'Monthly Payment', v: fmt(base.pmt) },
+    { l: 'Total Interest (Base)', v: fmt(base.totalInterest), s: `${base.rows.length} payments` },
+    { l: 'Interest Saved', v: saved > 0 ? fmt(saved) : '—', c: 'var(--green)' },
+    { l: 'Time Saved', v: mSaved > 0 ? `${ySaved}y ${moSaved}m` : '—', c: 'var(--green)' },
+  ].map(s => `<div class="stat"><div class="stat-label">${s.l}</div><div class="stat-value" style="color:${s.c || 'var(--text)'}">${s.v}</div>${s.s ? `<div class="stat-sub">${s.s}</div>` : ''}</div>`).join('');
+
+  // Pills
+  const keys = Object.keys(extraPayments).sort((a, b) => a - b);
+  $('pills').innerHTML = keys.map(m => `<span class="pill">Mo ${m}: ${fmtK(extraPayments[m])}<span class="pill-x" onclick="removeExtra(${m})">×</span></span>`).join('') + (keys.length ? `<button class="btn btn-outline btn-sm" onclick="clearAll()">Clear All</button>` : '');
+
+  // Table
+  const cols = ['Mo', 'Payment', 'Principal', 'Interest', 'Extra', 'Balance'];
+  $('thead').innerHTML = '<tr>' + cols.map(c => `<th>${c}</th>`).join('') + '</tr>';
+  const display = showAll ? we.rows : we.rows.filter((r, i) => i < 12 || i % 12 === 0 || r.extra > 0 || r.balance < 1);
+  $('tbody').innerHTML = display.map(r => `<tr class="${r.extra > 0 ? 'extra-row' : ''}" style="border-bottom:1px solid #262a3620">
+    <td style="color:var(--muted)">${r.month}</td><td>${fmt(r.payment)}</td><td>${fmt(r.principal)}</td>
+    <td style="color:var(--accent)">${fmt(r.interest)}</td>
+    <td style="color:${r.extra > 0 ? 'var(--green)' : 'var(--muted)'}">${r.extra > 0 ? fmt(r.extra) : '—'}</td>
+    <td style="font-weight:600">${fmt(r.balance)}</td></tr>`).join('');
+  $('toggleRows').textContent = showAll ? 'Show Key Rows' : `Show All ${we.rows.length} Rows`;
+
+  // Chart
+  if (currentTab === 'chart') drawChart(base.rows, we.rows, p.loan);
+}
+
+function drawChart(baseRows, extraRows, loanAmt) {
+  const W = 780, H = 260;
+  const P = { t: 20, r: 16, b: 36, l: 58 };
+  const cw = W - P.l - P.r, ch = H - P.t - P.b;
+  const maxM = baseRows.length;
+  const toX = m => P.l + (m / maxM) * cw;
+  const toY = b => P.t + (1 - b / loanAmt) * ch;
+  const path = rows => rows.map((r, i) => `${i ? 'L' : 'M'}${toX(r.month).toFixed(1)},${toY(r.balance).toFixed(1)}`).join(' ');
+
+  const yTicks = [0, 1, 2, 3, 4].map(i => Math.round(loanAmt * i / 4));
+  const xTicks = Array.from({ length: 7 }, (_, i) => Math.round(maxM * i / 6));
+
+  let svg = '';
+  yTicks.forEach(v => { svg += `<line x1="${P.l}" x2="${W - P.r}" y1="${toY(v)}" y2="${toY(v)}" stroke="var(--border)" stroke-width="0.5"/><text x="${P.l - 6}" y="${toY(v) + 4}" text-anchor="end" fill="var(--muted)" font-size="10">${fmtK(v)}</text>`; });
+  xTicks.forEach(m => { svg += `<text x="${toX(m)}" y="${H - 8}" text-anchor="middle" fill="var(--muted)" font-size="10">${m === 0 ? '0' : Math.floor(m / 12) + 'y'}</text>`; });
+  svg += `<path d="${path(baseRows)}" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.5"/>`;
+  svg += `<path d="${path(extraRows)}" fill="none" stroke="var(--accent)" stroke-width="2.5"/>`;
+  const last = extraRows[extraRows.length - 1];
+  svg += `<circle cx="${toX(last.month)}" cy="${toY(0)}" r="4" fill="var(--accent)"/>`;
+  svg += `<line x1="${P.l + 10}" x2="${P.l + 28}" y1="${P.t + 6}" y2="${P.t + 6}" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.5"/><text x="${P.l + 32}" y="${P.t + 10}" fill="var(--muted)" font-size="10">Base</text>`;
+  svg += `<line x1="${P.l + 80}" x2="${P.l + 98}" y1="${P.t + 6}" y2="${P.t + 6}" stroke="var(--accent)" stroke-width="2.5"/><text x="${P.l + 102}" y="${P.t + 10}" fill="var(--text)" font-size="10">With Extra</text>`;
+  $('chartSvg').innerHTML = svg;
+}
+
+// Wire up live recalc on any param change
+['homePrice', 'downPct', 'rate', 'years'].forEach(id => $(id).addEventListener('input', render));
+switchTab('schedule');
+</script>
