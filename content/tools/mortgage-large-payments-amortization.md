@@ -1,4 +1,4 @@
 ---
-title: Large Payments Mortgage Anortization
+title: Large Payments Mortgage Amortization
 ---
 {{< mortgage-large-payments-amortization >}} 

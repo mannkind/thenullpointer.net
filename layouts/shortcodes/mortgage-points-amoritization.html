@@ -1,0 +1,253 @@
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f5f5f2;
+    color: #1a1a18;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+h1 { font-size: 22px; font-weight: 500; margin-bottom: 1.5rem; }
+.calc-wrap { max-width: 640px; margin: 0 auto; }
+.section {
+    background: #ffffff;
+    border: 0.5px solid rgba(0,0,0,0.15);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+.row { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+.row:last-child { margin-bottom: 0; }
+.row label { font-size: 13px; color: #5f5e5a; width: 160px; flex-shrink: 0; }
+.row input[type=range] { flex: 1; accent-color: #1D9E75; }
+.row .val { font-size: 14px; font-weight: 500; min-width: 90px; text-align: right; }
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+.metric { background: #f1efe8; border-radius: 8px; padding: 0.85rem 1rem; }
+.metric-label { font-size: 12px; color: #5f5e5a; margin-bottom: 4px; }
+.metric-value { font-size: 20px; font-weight: 500; color: #1a1a18; }
+.metric-value.good { color: #0f6e56; }
+.metric-value.bad { color: #a32d2d; }
+.verdict { border-radius: 8px; padding: 0.85rem 1rem; font-size: 14px; font-weight: 500; margin-bottom: 1rem; }
+.verdict.good { background: #e1f5ee; color: #0f6e56; }
+.verdict.bad { background: #fcebeb; color: #a32d2d; }
+.chart-label { font-size: 12px; color: #5f5e5a; margin-bottom: 6px; }
+.legend { display: flex; gap: 16px; margin-bottom: 8px; font-size: 12px; color: #5f5e5a; }
+.legend span { display: flex; align-items: center; gap: 4px; }
+.legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+@media (prefers-color-scheme: dark) {
+    body { background: #1a1a18; color: #e8e6df; }
+    .section { background: #2c2c2a; border-color: rgba(255,255,255,0.12); }
+    .metric { background: #3a3a38; }
+    .metric-label { color: #a0a09a; }
+    .metric-value { color: #e8e6df; }
+    .metric-value.good { color: #5dcaa5; }
+    .metric-value.bad { color: #f09595; }
+    .verdict.good { background: #085041; color: #9fe1cb; }
+    .verdict.bad { background: #501313; color: #f7c1c1; }
+    .chart-label { color: #a0a09a; }
+    .legend { color: #a0a09a; }
+    .row label { color: #a0a09a; }
+}
+</style>
+</head>
+<body>
+<div class="calc-wrap">
+<h1>Mortgage points calculator</h1>
+
+<div class="section">
+    <div class="row">
+    <label>Loan amount</label>
+    <input type="range" id="loanAmt" min="50000" max="1000000" step="1000" value="168000">
+    <span class="val" id="loanAmtVal">$168,000</span>
+    </div>
+    <div class="row">
+    <label>Default rate</label>
+    <input type="range" id="baseRate" min="3" max="12" step="0.05" value="7.1">
+    <span class="val" id="baseRateVal">7.10%</span>
+    </div>
+    <div class="row">
+    <label>Buydown rate</label>
+    <input type="range" id="buyRate" min="3" max="12" step="0.05" value="6.625">
+    <span class="val" id="buyRateVal">6.625%</span>
+    </div>
+    <div class="row">
+    <label>Cost of points</label>
+    <input type="range" id="pointCost" min="500" max="20000" step="100" value="2940">
+    <span class="val" id="pointCostVal">$2,940</span>
+    </div>
+    <div class="row">
+    <label>Planned payoff (mo.)</label>
+    <input type="range" id="payoff" min="6" max="360" step="1" value="36">
+    <span class="val" id="payoffVal">36 mo.</span>
+    </div>
+</div>
+
+<div class="metrics">
+    <div class="metric"><div class="metric-label">Default payment</div><div class="metric-value" id="mBase">—</div></div>
+    <div class="metric"><div class="metric-label">Buydown payment</div><div class="metric-value" id="mBuy">—</div></div>
+    <div class="metric"><div class="metric-label">Monthly savings</div><div class="metric-value" id="mSave">—</div></div>
+    <div class="metric"><div class="metric-label">Break-even</div><div class="metric-value" id="mBE">—</div></div>
+    <div class="metric"><div class="metric-label">Savings at payoff</div><div class="metric-value" id="mSaveAt">—</div></div>
+    <div class="metric"><div class="metric-label">Net gain / loss</div><div class="metric-value" id="mNet">—</div></div>
+</div>
+
+<div class="verdict" id="verdict"></div>
+
+<div class="section">
+    <div class="chart-label">Cumulative savings vs. cost of points over time</div>
+    <div class="legend">
+    <span><span class="legend-dot" style="background:#1D9E75;"></span> Cumulative savings</span>
+    <span><span class="legend-dot" style="background:#E24B4A; opacity:0.7;"></span> Cost of points</span>
+    </div>
+    <div style="position: relative; width: 100%; height: 220px;">
+    <canvas id="chart" role="img" aria-label="Line chart showing cumulative savings versus cost of points over time"></canvas>
+    </div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+function monthlyPayment(principal, annualRate) {
+    const r = annualRate / 100 / 12;
+    const n = 360;
+    if (r === 0) return principal / n;
+    return principal * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+}
+
+function fmt$(n) { return '$' + Math.abs(n).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}); }
+function fmtSigned(n) { return (n >= 0 ? '+' : '-') + '$' + Math.abs(n).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}); }
+
+let chart;
+
+function compute() {
+    const loan = +document.getElementById('loanAmt').value;
+    const base = +document.getElementById('baseRate').value;
+    const buy = +document.getElementById('buyRate').value;
+    const cost = +document.getElementById('pointCost').value;
+    const payoff = +document.getElementById('payoff').value;
+
+    const pmtBase = monthlyPayment(loan, base);
+    const pmtBuy = monthlyPayment(loan, buy);
+    const savingPerMonth = pmtBase - pmtBuy;
+    const breakEven = savingPerMonth > 0 ? Math.ceil(cost / savingPerMonth) : Infinity;
+    const savingsAtPayoff = savingPerMonth * payoff;
+    const net = savingsAtPayoff - cost;
+
+    document.getElementById('mBase').textContent = fmt$(pmtBase);
+    document.getElementById('mBuy').textContent = fmt$(pmtBuy);
+    document.getElementById('mSave').textContent = fmt$(savingPerMonth) + '/mo';
+    document.getElementById('mBE').textContent = isFinite(breakEven) ? breakEven + ' mo.' : '—';
+
+    const saveEl = document.getElementById('mSaveAt');
+    saveEl.textContent = fmt$(savingsAtPayoff);
+
+    const netEl = document.getElementById('mNet');
+    netEl.textContent = fmtSigned(net);
+    netEl.className = 'metric-value ' + (net >= 0 ? 'good' : 'bad');
+
+    const verdictEl = document.getElementById('verdict');
+    if (!isFinite(breakEven) || savingPerMonth <= 0) {
+    verdictEl.textContent = 'Buydown rate is not lower — no benefit to buying points.';
+    verdictEl.className = 'verdict bad';
+    } else if (net >= 0) {
+    verdictEl.textContent = `Worth it. You break even at ${breakEven} months and net ${fmtSigned(net)} by your planned payoff.`;
+    verdictEl.className = 'verdict good';
+    } else {
+    verdictEl.textContent = `Not worth it. Break-even is ${breakEven} months — ${breakEven - payoff} months past your planned payoff. You'd be ${fmt$(Math.abs(net))} short.`;
+    verdictEl.className = 'verdict bad';
+    }
+
+    const maxMo = Math.max(payoff + 12, isFinite(breakEven) ? breakEven + 12 : payoff + 12, 60);
+    const labels = [];
+    const cumSavings = [];
+    const costLine = [];
+    for (let m = 0; m <= maxMo; m += Math.ceil(maxMo / 48)) {
+    labels.push('Mo ' + m);
+    cumSavings.push(+(savingPerMonth * m).toFixed(0));
+    costLine.push(cost);
+    }
+
+    const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+    const gridColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.07)';
+    const textColor = isDark ? '#a0a09a' : '#888780';
+
+    if (chart) {
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = cumSavings;
+    chart.data.datasets[1].data = costLine;
+    chart.update();
+    } else {
+    chart = new Chart(document.getElementById('chart'), {
+        type: 'line',
+        data: {
+        labels,
+        datasets: [
+            {
+            label: 'Cumulative savings',
+            data: cumSavings,
+            borderColor: '#1D9E75',
+            backgroundColor: 'rgba(29,158,117,0.08)',
+            borderWidth: 2,
+            pointRadius: 0,
+            fill: true,
+            tension: 0.3
+            },
+            {
+            label: 'Cost of points',
+            data: costLine,
+            borderColor: '#E24B4A',
+            borderWidth: 2,
+            borderDash: [6, 4],
+            pointRadius: 0,
+            fill: false
+            }
+        ]
+        },
+        options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+            callbacks: {
+                label: ctx => ' ' + ctx.dataset.label + ': $' + ctx.parsed.y.toLocaleString()
+            }
+            }
+        },
+        scales: {
+            x: { ticks: { color: textColor, font: { size: 11 }, maxTicksLimit: 8 }, grid: { color: gridColor } },
+            y: {
+            ticks: { color: textColor, font: { size: 11 }, callback: v => '$' + (v / 1000).toFixed(1) + 'k' },
+            grid: { color: gridColor }
+            }
+        }
+        }
+    });
+    }
+}
+
+['loanAmt', 'baseRate', 'buyRate', 'pointCost', 'payoff'].forEach(id => {
+    const el = document.getElementById(id);
+    el.addEventListener('input', () => {
+    const v = +el.value;
+    const labels = {
+        loanAmt: v => '$' + v.toLocaleString(),
+        baseRate: v => v.toFixed(2) + '%',
+        buyRate: v => v.toFixed(3) + '%',
+        pointCost: v => '$' + v.toLocaleString(),
+        payoff: v => v + ' mo.'
+    };
+    document.getElementById(id + 'Val').textContent = labels[id](v);
+    compute();
+    });
+});
+
+compute();
+</script>
