@@ -1,7 +1,7 @@
 ---
 title: "Showcase"
 description: "Details about my maker hardware, network setup, homelab, home automation, and more"
-date: "2026-01-01"
+date: "2026-09-01"
 ---
 
 This document chronicles my ongoing homelab and home automation journey—it's perpetually evolving and will never be completely finished or 100% accurate.
@@ -18,26 +18,33 @@ My homelab adventure began in 2009 with a simple ReadyNAS, while my home automat
 
 ### Networking
 
-- UniFi Cloud Gateway Fiber
+- UniFi Cloud Gateway Fiber - Primary site gateway
 - QNAP QSW-M2116P-2T2S - Multi-gig switch with two 10G SFP+/10Gbe ports, remainder are 2.5Gbe
 - UniFi U7 Lite (x2)
-- UniFi 5G Max Outdoor (soon!)
+- UniFi 5G Max Outdoor - Cellular fallback when the fiber drops
+- UniFi Dream Router 5G - Gateway and cellular WAN at the second site
 
 ### Storage
 
-- TrueNAS Scale VM with hardware passthrough
 - Multiple drive bays for redundant storage
 - Automated backups with Kopia
 
 ### Server(s)
 
 #### Primary/General Hypervisor
-Serves as the backbone, running clusters, NAS, and virtual workstation.
+Serves as the backbone, running storage, containers, and a virtual workstation.
 
 - Intel Core i7-13700 - Built-in iGPU for hardware transcoding
 - AsrockRack W680D4U-2•2T - Server motherboard with built-in 10Gbe connectivity
 - 128GB DDR5 ECC memory - Enterprise-grade reliability
-- Hosts both development and production Kubernetes clusters
+- Runs IncusOS, with the Docker hosts living in Incus VMs
+
+#### Second Site
+- UniFi Dream Router 5G - Gateway, Wi-Fi, and cellular WAN in one box
+- Raspberry Pi 5 (8GB) - Runs home assistant, zigbee2mqtt, meshcore remoteterm, birdnet-go
+
+#### Third Site
+- Raspberry Pi 5 (4GB) - Runs home assistant, meshcore remoteterm, birdnet-go
 
 #### Stratum 1 PTP/NTP Server
 Precision timing for the entire network using GPS synchronization.
@@ -71,15 +78,14 @@ Precision timing for the entire network using GPS synchronization.
 ## Software
 
 **Infrastructure & Orchestration:**
-- [Incus](https://linuxcontainers.org/incus/) - Open-source hypervisor running VMs and LXC containers; currently using LXC containers as K3S nodes for efficiency
+- [IncusOS](https://github.com/lxc/incus-os) - Immutable host OS underneath the hypervisor
+- [Incus](https://linuxcontainers.org/incus/) - Open-source hypervisor running VMs and LXC containers
+- [Docker](https://www.docker.com) - Moved away from k3s after an failed ipgrade
+- [Arcane](https://getarcane.app) - Web UI for managing Docker containers and Compose stacks across hosts
 - [OpenTofu](https://opentofu.org) - Infrastructure-as-code for repeatable homelab deployments and DNS provider management
-- [K3S](https://k3s.io) - Lightweight Kubernetes distribution (because Kubernetes is still hot and I like making simple things complicated)
-- [ArgoCD](https://argoproj.github.io/cd/) - GitOps continuous deployment ensuring my homelab applications stay in sync with Git
 
 **Networking & Load Balancing:**
 - [Traefik](https://traefik.io/) - HTTP load balancer with automatic Let's Encrypt certificate management
-- [MetalLB](https://metallb.universe.tf) - Bare-metal load balancer enabling shared IPs between cluster members
-- [Tailscale](https://www.tailscale.com) - Secure access to broader "home" network
 
 **Home Automation & IoT:**
 - [Home Assistant](https://home-assistant.io) - Central home automation hub
@@ -87,32 +93,26 @@ Precision timing for the entire network using GPS synchronization.
 - [ZWave2MQTT](https://github.com/zwave-js/zwave-js-ui) - Z-Wave network management
 - [Zigbee2MQTT](https://www.zigbee2mqtt.io) - Zigbee network management
 - [ESPHome](https://esphome.io) - Custom IoT device firmware for ESP8266/ESP32 controllers (thermostat, garage door, fireplace actuators, etc.)
+- [Music Assistant](https://music-assistant.io) - Ties my music libraries and speakers into Home Assistant
 
 **Data & Monitoring:**
 - [InfluxDB](https://www.influxdata.com/) - Time-series database for sensor data storage
 - [Grafana](https://grafana.org) - Data visualization creating beautiful charts and dashboards
 - [PostgreSQL](https://www.postgresql.org/) - Relational database for Miniflux and Home Assistant
+- [BirdNET-Go](https://github.com/tphakala/birdnet-go) - Identifies birds by song from a backyard mic and logs what shows up
+- [changedetection.io](https://changedetection.io) - Watches pages that have no RSS feed and tells me when they change
 
 **Media & Entertainment:**
 - [Plex](https://plex.tv) - Media streaming with hardware transcoding
 - [Jellyfin](https://jellyfin.org) - Open-source media streaming (still working to match Plex's polish; audio passthrough still janky)
 
+**Maker:**
+- [Bambuddy](https://github.com/maziggy/bambuddy) - Self-hosted print archive and monitoring for the Bambu printers, no cloud round trip
+
 **Productivity & Utilities:**
 - [Actual Budget](https://github.com/actualbudget/actual-server) - Replaced YNAB5 in late 2025
 - [Miniflux](https://miniflux.app) - Minimalist RSS feed reader (successor to Feedly and Google Reader)
+- [Vaultwarden](https://github.com/dani-garcia/vaultwarden) - Bitwarden-compatible password server
 - [Kopia](https://kopia.io) - Automated backup solution with encryption and deduplication
-
-## What's Next
-
-**Planned Upgrades:**
-- UniFi 5G Max Outdoor deployment for better internet fallback
-- Additional storage expansion for media library growth
-- Migration from remaining Z-Wave devices to Zigbee for consistency
-- Exploring Matter/Thread integration as the standard matures
-- Always evaluating new self-hosted applications that can replace cloud services
-
-**Ongoing Projects:**
-- Pending Actual budget [merge request](https://github.com/actualbudget/actual/pull/6157) to add payee geolocation functionality
-- Custom ESP32-based environmental sensors for every room
-- Advanced automation rules based on presence detection and weather
-- Perfect the Jellyfin setup to fully replace Plex dependency
+- [TREK](https://liketrek.com/) - Trip planner with maps, budgets, and packing lists
+- WelcomeMat - Reservation system for friends and family
